@@ -1,0 +1,17 @@
+{
+  "name": "primeor-web-internship",
+  "version": "1.0.0",
+  "description": "Front-end tasks completed by Kashav Thappa during the Web Development Internship at Primeor Solutions.",
+  "author": "Kashav Thappa <kashavthappa2005@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "dev": "npx --yes serve@14 . -l 3000",
+    "tailwind:build": "tailwindcss -i ./level-2/task-1/src/input.css -o ./level-2/task-1/tailwind.css --minify",
+    "tailwind:watch": "tailwindcss -i ./level-2/task-1/src/input.css -o ./level-2/task-1/tailwind.css --watch"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "4.3.3",
+    "tailwindcss": "4.3.3"
+  }
+}
