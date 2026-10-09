@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Level 3 · Task 1 — Image Gallery &amp; Slideshow | Kashav Thappa</title>
+  <meta name="description" content="A CSS image gallery with thumbnails that enlarge on click, an automatic HTML and CSS slideshow, and smooth image hover effects.">
+  <meta name="author" content="Kashav Thappa">
+  <meta name="theme-color" content="#000000">
+  <link rel="icon" href="../../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="../../assets/css/site.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#slideshow">Skip to content</a>
+
+  <header class="gnav">
+    <nav class="wrap gnav__inner" aria-label="Portfolio">
+      <a class="gnav__brand" href="../../"><span class="gnav__logo" aria-hidden="true">K</span>Kashav Thappa</a>
+      <button class="gnav__toggle" type="button" aria-expanded="false" aria-controls="gnav-links" aria-label="Menu">
+        <span></span><span></span>
+      </button>
+      <ul class="gnav__links" id="gnav-links">
+        <li><a href="../../#level-1">Level 1</a></li>
+        <li><a href="../../#level-2">Level 2</a></li>
+        <li><a href="../../#level-3" aria-current="page">Level 3</a></li>
+        <li><a href="../../#about">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="dark">
+    <section class="task-hero wrap">
+      <ol class="crumbs">
+        <li><a href="../../">Portfolio</a></li>
+        <li><a href="../../#level-3">Level 3</a></li>
+        <li aria-current="page">Task 1</li>
+      </ol>
+      <h1 class="title">Image Manipulation</h1>
+      <p class="lede">An automatic slideshow, a gallery whose thumbnails open full size, and hover effects. The core of each is pure HTML and CSS.</p>
+      <ul class="checklist">
+        <li>Auto slideshow in HTML &amp; CSS</li>
+        <li>Click-to-enlarge gallery</li>
+        <li>Smooth hover transitions</li>
+      </ul>
+    </section>
+
+    <!-- ============ 1. Automatic slideshow (CSS keyframes only) ============ -->
+    <section class="block wrap" id="slideshow" aria-labelledby="slideshow-title">
+      <header class="block__head">
+        <p class="eyebrow">01 · Slideshow</p>
+        <h2 class="block__title" id="slideshow-title">Plays itself.</h2>
+        <p class="block__text">Five slides cross-fade every five seconds using CSS keyframe animations with staggered delays. Hover to pause.</p>
+      </header>
+      <div class="slideshow">
+        <figure class="slide"><img src="../../assets/img/gallery/fjord.webp" alt="Deep blue fjord between rocky cliffs" width="1600" height="1067"><figcaption><strong>Fjord</strong>Where the mountains meet the sea.</figcaption></figure>
+        <figure class="slide"><img src="../../assets/img/gallery/basecamp.webp" alt="Yellow tents at a snowy mountain base camp" width="1600" height="1067" loading="lazy"><figcaption><strong>Base camp</strong>Bright tents against white snow.</figcaption></figure>
+        <figure class="slide"><img src="../../assets/img/gallery/waterfall.webp" alt="Waterfall falling into a mossy gorge" width="1600" height="1067" loading="lazy"><figcaption><strong>Waterfall</strong>Green, wet and loud.</figcaption></figure>
+        <figure class="slide"><img src="../../assets/img/gallery/coastline.webp" alt="Turquoise sea against white coastal cliffs" width="1600" height="1067" loading="lazy"><figcaption><strong>Coastline</strong>Turquoise water, chalk-white cliffs.</figcaption></figure>
+        <figure class="slide"><img src="../../assets/img/gallery/skyline.webp" alt="City skyline under a hazy sunset" width="1600" height="1067" loading="lazy"><figcaption><strong>Skyline</strong>The city at golden hour.</figcaption></figure>
+        <div class="slideshow__dots" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+      </div>
+    </section>
+
+    <!-- ============ 2. Gallery: thumbnails enlarge on click (CSS :target) ============ -->
+    <section class="block wrap" id="gallery" aria-labelledby="gallery-title">
+      <header class="block__head">
+        <p class="eyebrow">02 · Gallery</p>
+        <h2 class="block__title" id="gallery-title">Tap to enlarge.</h2>
+        <p class="block__text">Each thumbnail links to a full-size view. The CSS <code>:target</code> selector shows it, so no JavaScript is needed to open, close or move between images.</p>
+      </header>
+      <ul class="gallery">
+        <li><a class="thumb" href="#view-fjord"><img src="../../assets/img/gallery/fjord-sm.webp" alt="Deep blue fjord between rocky cliffs" width="640" height="427" loading="lazy"><span class="thumb__label">Fjord</span></a></li>
+        <li><a class="thumb" href="#view-canyon"><img src="../../assets/img/gallery/canyon-sm.webp" alt="Red rock canyon glowing at sunset" width="640" height="427" loading="lazy"><span class="thumb__label">Canyon</span></a></li>
+        <li><a class="thumb" href="#view-highlands"><img src="../../assets/img/gallery/highlands-sm.webp" alt="Green highland ridge with a winding road" width="640" height="427" loading="lazy"><span class="thumb__label">Highlands</span></a></li>
+        <li><a class="thumb" href="#view-storm"><img src="../../assets/img/gallery/storm-sm.webp" alt="Dark storm clouds over the sea" width="640" height="427" loading="lazy"><span class="thumb__label">Storm</span></a></li>
+        <li><a class="thumb" href="#view-basecamp"><img src="../../assets/img/gallery/basecamp-sm.webp" alt="Yellow tents at a snowy mountain base camp" width="640" height="427" loading="lazy"><span class="thumb__label">Base camp</span></a></li>
+        <li><a class="thumb" href="#view-waterfall"><img src="../../assets/img/gallery/waterfall-sm.webp" alt="Waterfall falling into a mossy gorge" width="640" height="427" loading="lazy"><span class="thumb__label">Waterfall</span></a></li>
+        <li><a class="thumb" href="#view-valley"><img src="../../assets/img/gallery/valley-sm.webp" alt="Granite cliffs above a pine forest" width="640" height="427" loading="lazy"><span class="thumb__label">Valley</span></a></li>
+        <li><a class="thumb" href="#view-river"><img src="../../assets/img/gallery/river-sm.webp" alt="A lone hiker beside a misty river" width="640" height="427" loading="lazy"><span class="thumb__label">River</span></a></li>
+        <li><a class="thumb" href="#view-coastline"><img src="../../assets/img/gallery/coastline-sm.webp" alt="Turquoise sea against white coastal cliffs" width="640" height="427" loading="lazy"><span class="thumb__label">Coastline</span></a></li>
+        <li><a class="thumb" href="#view-cliffs"><img src="../../assets/img/gallery/cliffs-sm.webp" alt="Coastal cliffs in golden evening light" width="640" height="427" loading="lazy"><span class="thumb__label">Cliffs</span></a></li>
+        <li><a class="thumb" href="#view-skyline"><img src="../../assets/img/gallery/skyline-sm.webp" alt="City skyline under a hazy sunset" width="640" height="427" loading="lazy"><span class="thumb__label">Skyline</span></a></li>
+        <li><a class="thumb" href="#view-alley"><img src="../../assets/img/gallery/alley-sm.webp" alt="Narrow brick alley between tall buildings" width="640" height="427" loading="lazy"><span class="thumb__label">Alley</span></a></li>      </ul>
+    </section>
+
+    <!-- ============ 3. Hover effects ============ -->
+    <section class="block wrap" id="effects" aria-labelledby="effects-title">
+      <header class="block__head">
+        <p class="eyebrow">03 · Hover effects</p>
+        <h2 class="block__title" id="effects-title">Small moves, smooth feel.</h2>
+        <p class="block__text">Four transition styles. Hover over a card on desktop, or tap it on a touch screen.</p>
+      </header>
+      <div class="effects">
+        <figure class="fx fx--zoom" tabindex="0">
+          <img src="../../assets/img/gallery/valley-sm.webp" alt="Granite cliffs above a pine forest" width="640" height="427" loading="lazy">
+          <figcaption>Zoom</figcaption>
+        </figure>
+        <figure class="fx fx--colour" tabindex="0">
+          <img src="../../assets/img/gallery/highlands-sm.webp" alt="Green highland ridge with a winding road" width="640" height="427" loading="lazy">
+          <figcaption>Black &amp; white to colour</figcaption>
+        </figure>
+        <figure class="fx fx--caption" tabindex="0">
+          <img src="../../assets/img/gallery/cliffs-sm.webp" alt="Coastal cliffs in golden evening light" width="640" height="427" loading="lazy">
+          <figcaption>Caption slide-up<span>Details appear from below.</span></figcaption>
+        </figure>
+        <figure class="fx fx--lift" tabindex="0">
+          <img src="../../assets/img/gallery/canyon-sm.webp" alt="Red rock canyon glowing at sunset" width="640" height="427" loading="lazy">
+          <figcaption>Lift &amp; shadow</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <div class="wrap">
+      <nav class="pager" aria-label="Task navigation">
+        <a href="../../level-2/task-2/"><small>Previous</small><strong>Level 2 · Task 2</strong></a>
+        <a class="next" href="../task-2/"><small>Next</small><strong>Level 3 · Task 2</strong></a>
+      </nav>
+    </div>
+  </main>
+
+  <!-- Full-size views, opened through #view-… links -->
+  <div class="lightbox" id="view-fjord" role="dialog" aria-label="Fjord">
+    <a class="lightbox__backdrop" href="#closed" aria-label="Close"></a>
+    <figure class="lightbox__figure">
+      <img src="../../assets/img/gallery/fjord.webp" alt="Deep blue fjord between rocky cliffs" width="1600" height="1067" loading="lazy">
+      <figcaption><strong>Fjord</strong> · 1 of 12</figcaption>
+    </figure>
+    <a class="lightbox__btn lightbox__prev" href="#view-alley" aria-label="Previous image">&#8249;</a>
+    <a class="lightbox__btn lightbox__next" href="#view-canyon" aria-label="Next image">&#8250;</a>
+    <a class="lightbox__btn lightbox__close" href="#closed" aria-label="Close">&#215;</a>
+  </div>
+  <div class="lightbox" id="view-canyon" role="dialog" aria-label="Canyon">
+    <a class="lightbox__backdrop" href="#closed" aria-label="Close"></a>
+    <figure class="lightbox__figure">
+      <img src="../../assets/img/gallery/canyon.webp" alt="Red rock canyon glowing at sunset" width="1600" height="1067" loading="lazy">
+      <figcaption><strong>Canyon</strong> · 2 of 12</figcaption>
+    </figure>
+    <a class="lightbox__btn lightbox__prev" href="#view-fjord" aria-label="Previous image">&#8249;</a>
+    <a class="lightbox__btn lightbox__next" href="#view-highlands" aria-label="Next image">&#8250;</a>
+    <a class="lightbox__btn lightbox__close" href="#closed" aria-label="Close">&#215;</a>
+  </div>
+  <div class="lightbox" id="view-highlands" role="dialog" aria-label="Highlands">
+    <a class="lightbox__backdrop" href="#closed" aria-label="Close"></a>
+    <figure class="lightbox__figure">
+      <img src="../../assets/img/gallery/highlands.webp" alt="Green highland ridge with a winding road" width="1600" height="1067" loading="lazy">
+      <figcaption><strong>Highlands</strong> · 3 of 12</figcaption>
+    </figure>
+    <a class="lightbox__btn lightbox__prev" href="#view-canyon" aria-label="Previous image">&#8249;</a>
+    <a class="lightbox__btn lightbox__next" href="#view-storm" aria-label="Next image">&#8250;</a>
+    <a class="lightbox__btn lightbox__close" href="#closed" aria-label="Close">&#215;</a>
+  </div>
+  <div class="lightbox" id="view-storm" role="dialog" aria-label="Storm">
+    <a class="lightbox__backdrop" href="#closed" aria-label="Close"></a>
+    <figure class="lightbox__figure">
+      <img src="../../assets/img/gallery/storm.webp" alt="Dark storm clouds over the sea" width="1600" height="1067" loading="lazy">
+      <figcaption><strong>Storm</strong> · 4 of 12</figcaption>
+    </figure>
+    <a class="lightbox__btn lightbox__prev" href="#view-highlands" aria-label="Previous image">&#8249;</a>
+    <a class="lightbox__btn lightbox__next" href="#view-basecamp" aria-label="Next image">&#8250;</a>
+    <a class="lightbox__btn lightbox__close" href="#closed" aria-label="Close">&#215;</a>
+  </div>
+  <div class="lightbox" id="view-basecamp" role="dialog" aria-label="Base camp">
+    <a class="lightbox__backdrop" href="#closed" aria-label="Close"></a>
+    <figure class="lightbox__figure">
+      <img src="../../assets/img/gallery/basecamp.webp" alt="Yellow tents at a snowy mountain base camp" width="1600" height="1067" loading="lazy">
+      <figcaption><strong>Base camp</strong> · 5 of 12</figcaption>
+    </figure>
+    <a class="lightbox__btn lightbox__prev" href="#view-storm" aria-label="Previous image">&#8249;</a>
+    <a class="lightbox__btn lightbox__next" href="#view-waterfall" aria-label="Next image">&#8250;</a>
+    <a class="lightbox__btn lightbox__close" href="#closed" aria-label="Close">&#215;</a>
+  </div>
+  <div class="lightbox" id="view-waterfall" role="dialog" aria-label="Waterfall">
+    <a class="lightbox__backdrop" href="#closed" aria-label="Close"></a>
+    <figure class="lightbox__figure">
+      <img src="../../assets/img/gallery/waterfall.webp" alt="Waterfall falling into a mossy gorge" width="1600" height="1067" loading="lazy">
+      <figcaption><strong>Waterfall</strong> · 6 of 12</figcaption>
+    </figure>
+    <a class="lightbox__btn lightbox__prev" href="#view-basecamp" aria-label="Previous image">&#8249;</a>
+    <a class="lightbox__btn lightbox__next" href="#view-valley" aria-label="Next image">&#8250;</a>
+    <a class="lightbox__btn lightbox__close" href="#closed" aria-label="Close">&#215;</a>
+  </div>
+  <div class="lightbox" id="view-valley" role="dialog" aria-label="Valley">
+    <a class="lightbox__backdrop" href="#closed" aria-label="Close"></a>
+    <figure class="lightbox__figure">
+      <img src="../../assets/img/gallery/valley.webp" alt="Granite cliffs above a pine forest" width="1600" height="1067" loading="lazy">
+      <figcaption><strong>Valley</strong> · 7 of 12</figcaption>
+    </figure>
+    <a class="lightbox__btn lightbox__prev" href="#view-waterfall" aria-label="Previous image">&#8249;</a>
+    <a class="lightbox__btn lightbox__next" href="#view-river" aria-label="Next image">&#8250;</a>
+    <a class="lightbox__btn lightbox__close" href="#closed" aria-label="Close">&#215;</a>
+  </div>
+  <div class="lightbox" id="view-river" role="dialog" aria-label="River">
+    <a class="lightbox__backdrop" href="#closed" aria-label="Close"></a>
+    <figure class="lightbox__figure">
+      <img src="../../assets/img/gallery/river.webp" alt="A lone hiker beside a misty river" width="1600" height="1067" loading="lazy">
+      <figcaption><strong>River</strong> · 8 of 12</figcaption>
+    </figure>
+    <a class="lightbox__btn lightbox__prev" href="#view-valley" aria-label="Previous image">&#8249;</a>
+    <a class="lightbox__btn lightbox__next" href="#view-coastline" aria-label="Next image">&#8250;</a>
+    <a class="lightbox__btn lightbox__close" href="#closed" aria-label="Close">&#215;</a>
+  </div>
+  <div class="lightbox" id="view-coastline" role="dialog" aria-label="Coastline">
+    <a class="lightbox__backdrop" href="#closed" aria-label="Close"></a>
+    <figure class="lightbox__figure">
+      <img src="../../assets/img/gallery/coastline.webp" alt="Turquoise sea against white coastal cliffs" width="1600" height="1067" loading="lazy">
+      <figcaption><strong>Coastline</strong> · 9 of 12</figcaption>
+    </figure>
+    <a class="lightbox__btn lightbox__prev" href="#view-river" aria-label="Previous image">&#8249;</a>
+    <a class="lightbox__btn lightbox__next" href="#view-cliffs" aria-label="Next image">&#8250;</a>
+    <a class="lightbox__btn lightbox__close" href="#closed" aria-label="Close">&#215;</a>
+  </div>
+  <div class="lightbox" id="view-cliffs" role="dialog" aria-label="Cliffs">
+    <a class="lightbox__backdrop" href="#closed" aria-label="Close"></a>
+    <figure class="lightbox__figure">
+      <img src="../../assets/img/gallery/cliffs.webp" alt="Coastal cliffs in golden evening light" width="1600" height="1067" loading="lazy">
+      <figcaption><strong>Cliffs</strong> · 10 of 12</figcaption>
+    </figure>
+    <a class="lightbox__btn lightbox__prev" href="#view-coastline" aria-label="Previous image">&#8249;</a>
+    <a class="lightbox__btn lightbox__next" href="#view-skyline" aria-label="Next image">&#8250;</a>
+    <a class="lightbox__btn lightbox__close" href="#closed" aria-label="Close">&#215;</a>
+  </div>
+  <div class="lightbox" id="view-skyline" role="dialog" aria-label="Skyline">
+    <a class="lightbox__backdrop" href="#closed" aria-label="Close"></a>
+    <figure class="lightbox__figure">
+      <img src="../../assets/img/gallery/skyline.webp" alt="City skyline under a hazy sunset" width="1600" height="1067" loading="lazy">
+      <figcaption><strong>Skyline</strong> · 11 of 12</figcaption>
+    </figure>
+    <a class="lightbox__btn lightbox__prev" href="#view-cliffs" aria-label="Previous image">&#8249;</a>
+    <a class="lightbox__btn lightbox__next" href="#view-alley" aria-label="Next image">&#8250;</a>
+    <a class="lightbox__btn lightbox__close" href="#closed" aria-label="Close">&#215;</a>
+  </div>
+  <div class="lightbox" id="view-alley" role="dialog" aria-label="Alley">
+    <a class="lightbox__backdrop" href="#closed" aria-label="Close"></a>
+    <figure class="lightbox__figure">
+      <img src="../../assets/img/gallery/alley.webp" alt="Narrow brick alley between tall buildings" width="1600" height="1067" loading="lazy">
+      <figcaption><strong>Alley</strong> · 12 of 12</figcaption>
+    </figure>
+    <a class="lightbox__btn lightbox__prev" href="#view-skyline" aria-label="Previous image">&#8249;</a>
+    <a class="lightbox__btn lightbox__next" href="#view-fjord" aria-label="Next image">&#8250;</a>
+    <a class="lightbox__btn lightbox__close" href="#closed" aria-label="Close">&#215;</a>
+  </div>
+  <footer class="site-footer">
+    <div class="wrap site-footer__row">
+      <span>Copyright © <span data-year>2026</span> Kashav Thappa. All rights reserved.</span>
+      <span>Primeor Solutions · Web Development Internship</span>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/site.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

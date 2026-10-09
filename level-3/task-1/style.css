@@ -1,0 +1,566 @@
+/* Level 3 · Task 1 — slideshow, click-to-enlarge gallery and hover effects (dark page) */
+
+body {
+  background: #000;
+}
+
+.gnav {
+  background: rgba(22, 22, 23, 0.8);
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+
+.gnav__brand,
+.gnav__links a {
+  color: #f5f5f7;
+}
+
+.gnav__logo {
+  background: #f5f5f7;
+  color: #000;
+}
+
+.gnav__links a:hover,
+.gnav__links a[aria-current="page"] {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.gnav__toggle span {
+  background: #f5f5f7;
+}
+
+@media (max-width: 760px) {
+  .gnav__links {
+    background: rgba(22, 22, 23, 0.96);
+    border-bottom-color: rgba(255, 255, 255, 0.08);
+  }
+
+  .gnav__links a {
+    border-bottom-color: rgba(255, 255, 255, 0.08);
+  }
+
+  .gnav__links a:hover,
+  .gnav__links a[aria-current="page"] {
+    color: #2997ff;
+  }
+}
+
+.dark {
+  color: #f5f5f7;
+}
+
+.dark .lede,
+.dark .eyebrow,
+.dark .crumbs a {
+  color: #a1a1a6;
+}
+
+.dark .crumbs li + li::before {
+  color: #424245;
+}
+
+.dark .checklist li {
+  background: #1d1d1f;
+  box-shadow: none;
+  color: #c7c7cc;
+}
+
+.dark .pager a {
+  background: #1d1d1f;
+  box-shadow: none;
+  color: #f5f5f7;
+}
+
+.dark .pager small {
+  color: #86868b;
+}
+
+.dark code {
+  padding: 2px 6px;
+  border-radius: 6px;
+  background: #1d1d1f;
+  font-family: var(--mono);
+  font-size: 0.88em;
+}
+
+/* ---------- Section blocks ---------- */
+
+.block {
+  padding: clamp(48px, 7vw, 88px) 0;
+}
+
+.block__head {
+  max-width: 640px;
+  margin: 0 auto clamp(32px, 5vw, 52px);
+  text-align: center;
+}
+
+.block__title {
+  margin: 0;
+  font-size: clamp(34px, 5vw, 56px);
+  line-height: 1.06;
+  letter-spacing: -0.035em;
+}
+
+.block__text {
+  margin: 16px 0 0;
+  color: #a1a1a6;
+  font-size: 19px;
+}
+
+/* =====================================================================
+   1. Slideshow — 5 slides x 5s = 25s loop, each slide offset by 5s
+   ===================================================================== */
+
+.slideshow {
+  --slide-time: 5s;
+  --slides: 5;
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius-lg);
+  background: #111;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  opacity: 0;
+  animation: slide-fade calc(var(--slide-time) * var(--slides)) infinite both;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: ken-burns calc(var(--slide-time) * var(--slides)) infinite both;
+}
+
+.slide:nth-child(1), .slide:nth-child(1) img { animation-delay: 0s; }
+.slide:nth-child(2), .slide:nth-child(2) img { animation-delay: 5s; }
+.slide:nth-child(3), .slide:nth-child(3) img { animation-delay: 10s; }
+.slide:nth-child(4), .slide:nth-child(4) img { animation-delay: 15s; }
+.slide:nth-child(5), .slide:nth-child(5) img { animation-delay: 20s; }
+
+/* Slide 1 is the base layer and always visible. Slides 2-5 fade in on top of
+   the previous slide, so there is never a dark gap between images. */
+.slide:first-child {
+  opacity: 1;
+  animation: none;
+}
+
+@keyframes slide-fade {
+  0% { opacity: 0; }
+  4% { opacity: 1; }
+  24% { opacity: 1; }
+  24.1% { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+/* The last slide fades out to reveal slide 1 again */
+.slide:nth-child(5) {
+  animation-name: slide-fade-last;
+}
+
+@keyframes slide-fade-last {
+  0% { opacity: 0; }
+  4% { opacity: 1; }
+  20% { opacity: 1; }
+  24% { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+/* A slow zoom while the slide is visible */
+@keyframes ken-burns {
+  0% { transform: scale(1.12); }
+  24% { transform: scale(1); }
+  100% { transform: scale(1); }
+}
+
+.slide figcaption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: clamp(20px, 4vw, 40px);
+  padding-bottom: clamp(36px, 5vw, 56px);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
+  color: #fff;
+  font-size: clamp(15px, 1.6vw, 19px);
+}
+
+.slide figcaption strong {
+  display: block;
+  font-size: clamp(24px, 3.4vw, 40px);
+  letter-spacing: -0.03em;
+}
+
+.slideshow__dots {
+  position: absolute;
+  left: 50%;
+  bottom: 16px;
+  display: flex;
+  gap: 8px;
+  transform: translateX(-50%);
+}
+
+.slideshow__dots span {
+  position: relative;
+  width: 28px;
+  height: 4px;
+  overflow: hidden;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Progress bar inside each dot fills while its slide is showing */
+.slideshow__dots span::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #fff;
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: dot-fill calc(var(--slide-time) * var(--slides)) linear infinite both;
+}
+
+.slideshow__dots span:nth-child(2)::after { animation-delay: 5s; }
+.slideshow__dots span:nth-child(3)::after { animation-delay: 10s; }
+.slideshow__dots span:nth-child(4)::after { animation-delay: 15s; }
+.slideshow__dots span:nth-child(5)::after { animation-delay: 20s; }
+
+@keyframes dot-fill {
+  0% { transform: scaleX(0); }
+  20% { transform: scaleX(1); }
+  20.01%, 100% { transform: scaleX(0); }
+}
+
+.slideshow:hover .slide,
+.slideshow:hover .slide img,
+.slideshow:hover .slideshow__dots span::after {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .slide,
+  .slide img,
+  .slideshow__dots span::after {
+    animation: none !important;
+  }
+
+  .slide:first-child {
+    opacity: 1;
+  }
+}
+
+/* =====================================================================
+   2. Gallery with :target lightbox
+   ===================================================================== */
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (min-width: 640px) {
+  .gallery {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .gallery {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.thumb {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: #1d1d1f;
+}
+
+.thumb img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  transition: transform 0.7s var(--ease-out), filter 0.7s var(--ease-out);
+}
+
+.thumb__label {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.45);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 500;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.4s var(--ease), transform 0.4s var(--ease);
+}
+
+.thumb:hover img,
+.thumb:focus-visible img {
+  transform: scale(1.08);
+  filter: brightness(1.08);
+}
+
+.thumb:hover .thumb__label,
+.thumb:focus-visible .thumb__label {
+  opacity: 1;
+  transform: none;
+}
+
+.thumb:hover {
+  text-decoration: none;
+}
+
+/* Lightbox: hidden until its id matches the URL hash */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s var(--ease), visibility 0s linear 0.4s;
+}
+
+.lightbox:target {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.4s var(--ease), visibility 0s;
+}
+
+.lightbox__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.88);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  cursor: zoom-out;
+}
+
+.lightbox__figure {
+  position: relative;
+  margin: 0;
+  max-width: min(1100px, 100%);
+  transform: scale(0.94);
+  transition: transform 0.5s var(--ease-out);
+}
+
+.lightbox:target .lightbox__figure {
+  transform: none;
+}
+
+.lightbox__figure img {
+  max-height: 78vh;
+  width: auto;
+  margin-inline: auto;
+  border-radius: var(--radius);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+}
+
+.lightbox__figure figcaption {
+  margin-top: 14px;
+  color: #a1a1a6;
+  font-size: 15px;
+  text-align: center;
+}
+
+.lightbox__figure strong {
+  color: #f5f5f7;
+}
+
+.lightbox__btn {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  font-size: 30px;
+  line-height: 1;
+  transition: background-color 0.25s var(--ease), transform 0.25s var(--ease);
+}
+
+.lightbox__btn:hover {
+  background: rgba(255, 255, 255, 0.24);
+  text-decoration: none;
+}
+
+.lightbox__prev { left: 20px; top: 50%; transform: translateY(-50%); }
+.lightbox__next { right: 20px; top: 50%; transform: translateY(-50%); }
+.lightbox__close { right: 20px; top: 20px; font-size: 26px; }
+
+@media (max-width: 640px) {
+  .lightbox__prev,
+  .lightbox__next {
+    top: auto;
+    bottom: 24px;
+    transform: none;
+  }
+
+  .lightbox__prev { left: calc(50% - 60px); }
+  .lightbox__next { right: calc(50% - 60px); }
+}
+
+/* =====================================================================
+   3. Hover effects
+   ===================================================================== */
+
+.effects {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+@media (min-width: 1024px) {
+  .effects {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .effects {
+    grid-template-columns: 1fr;
+  }
+}
+
+.fx {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: #1d1d1f;
+  cursor: pointer;
+}
+
+.fx img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+}
+
+.fx figcaption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 16px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.65), transparent);
+  color: #fff;
+  font-weight: 600;
+}
+
+/* Zoom */
+.fx--zoom img {
+  transition: transform 0.8s var(--ease-out);
+}
+
+.fx--zoom:hover img,
+.fx--zoom:focus img {
+  transform: scale(1.12);
+}
+
+/* Black & white to colour */
+.fx--colour img {
+  filter: grayscale(1) contrast(1.05);
+  transition: filter 0.8s var(--ease);
+}
+
+.fx--colour:hover img,
+.fx--colour:focus img {
+  filter: none;
+}
+
+/* Caption slides up */
+.fx--caption figcaption {
+  padding-top: 40px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+}
+
+.fx--caption figcaption span {
+  display: block;
+  max-height: 0;
+  overflow: hidden;
+  color: #c7c7cc;
+  font-weight: 400;
+  opacity: 0;
+  transition: max-height 0.5s var(--ease), opacity 0.5s var(--ease);
+}
+
+.fx--caption img {
+  transition: transform 0.8s var(--ease-out);
+}
+
+.fx--caption:hover figcaption span,
+.fx--caption:focus figcaption span {
+  max-height: 48px;
+  opacity: 1;
+}
+
+.fx--caption:hover img,
+.fx--caption:focus img {
+  transform: translateY(-12px) scale(1.04);
+}
+
+/* Lift & shadow */
+.fx--lift {
+  overflow: visible;
+  transition: transform 0.6s var(--ease-out), box-shadow 0.6s var(--ease-out);
+}
+
+.fx--lift img {
+  border-radius: var(--radius);
+}
+
+.fx--lift figcaption {
+  border-radius: 0 0 var(--radius) var(--radius);
+}
+
+.fx--lift:hover,
+.fx--lift:focus {
+  transform: translateY(-10px) rotate(-1deg);
+  box-shadow: 0 30px 60px -12px rgba(41, 151, 255, 0.45);
+}
+
+.fx:focus {
+  outline: none;
+}
+
+.fx:focus-visible {
+  outline: 3px solid rgba(41, 151, 255, 0.7);
+  outline-offset: 3px;
+}
+
+/* Footer on the dark page */
+.site-footer {
+  background: #161617;
+  color: #86868b;
+}
+
+.site-footer__row {
+  border-top-color: #424245;
+}
+
+/* Stop the page behind the lightbox from scrolling (class set by script.js) */
+.has-lightbox {
+  overflow: hidden;
+}
