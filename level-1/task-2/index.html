@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Level 1 · Task 2 — JavaScript Interactions | Kashav Thappa</title>
+  <meta name="description" content="A colour-changing button, a time-based greeting alert and an addition calculator with input validation, built with JavaScript.">
+  <meta name="author" content="Kashav Thappa">
+  <link rel="icon" href="../../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="../../assets/css/site.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#demos">Skip to content</a>
+
+  <header class="gnav">
+    <nav class="wrap gnav__inner" aria-label="Portfolio">
+      <a class="gnav__brand" href="../../"><span class="gnav__logo" aria-hidden="true">K</span>Kashav Thappa</a>
+      <button class="gnav__toggle" type="button" aria-expanded="false" aria-controls="gnav-links" aria-label="Menu">
+        <span></span><span></span>
+      </button>
+      <ul class="gnav__links" id="gnav-links">
+        <li><a href="../../#level-1" aria-current="page">Level 1</a></li>
+        <li><a href="../../#level-2">Level 2</a></li>
+        <li><a href="../../#level-3">Level 3</a></li>
+        <li><a href="../../#about">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="task-hero wrap">
+    <ol class="crumbs">
+      <li><a href="../../">Portfolio</a></li>
+      <li><a href="../../#level-1">Level 1</a></li>
+      <li aria-current="page">Task 2</li>
+    </ol>
+    <h1 class="title">JavaScript</h1>
+    <p class="lede">Three small interactions that respond to clicks, the clock and the keyboard, each written in plain JavaScript.</p>
+    <ul class="checklist">
+      <li>Colour-changing button</li>
+      <li>Time-based greeting alert</li>
+      <li>Addition calculator</li>
+      <li>Input validation</li>
+    </ul>
+  </section>
+
+  <main class="wrap bento" id="demos">
+    <!-- 1. Interactive colour button -->
+    <section class="demo demo--colour" id="colour-demo" aria-labelledby="colour-title">
+      <div class="demo__glow" aria-hidden="true"></div>
+      <header class="demo__head">
+        <span class="demo__num">01</span>
+        <h2 id="colour-title">Colour button</h2>
+        <p>Each click moves the button to the next colour in the palette, with a smooth transition.</p>
+      </header>
+      <div class="colour-stage">
+        <button class="colour-btn" id="colour-btn" type="button">Change colour</button>
+        <p class="colour-meta" aria-live="polite">
+          <span class="colour-dot" id="colour-dot"></span>
+          <span id="colour-name">Blue</span>
+          <code id="colour-hex">#0071E3</code>
+        </p>
+        <ol class="swatches" id="swatches" aria-label="Palette"></ol>
+      </div>
+    </section>
+
+    <!-- 2. Greeting alert -->
+    <section class="demo demo--greeting" aria-labelledby="greeting-title">
+      <header class="demo__head">
+        <span class="demo__num">02</span>
+        <h2 id="greeting-title">Greeting alert</h2>
+        <p>The message depends on the hour of your system clock: morning, afternoon or evening.</p>
+      </header>
+      <div class="clock">
+        <time class="clock__time" id="clock-time">--:--</time>
+        <span class="clock__date" id="clock-date"></span>
+      </div>
+      <div class="greeting-actions">
+        <button class="btn" id="greet-btn" type="button">Show greeting</button>
+      </div>
+      <details class="preview">
+        <summary>Try another time of day</summary>
+        <label for="hour-range">Preview hour: <strong id="hour-label">9:00</strong></label>
+        <input id="hour-range" type="range" min="0" max="23" value="9">
+        <button class="btn btn--ghost" id="preview-btn" type="button">Show greeting for this hour</button>
+      </details>
+    </section>
+
+    <!-- 3. Calculator -->
+    <section class="demo demo--calc" aria-labelledby="calc-title">
+      <header class="demo__head">
+        <span class="demo__num">03</span>
+        <h2 id="calc-title">Addition calculator</h2>
+        <p>Enter two numbers. The sum updates instantly, and invalid input is pointed out next to the field.</p>
+      </header>
+      <form class="calc" id="calc" novalidate>
+        <div class="calc__row">
+          <div class="calc__field">
+            <label for="num-a">First number</label>
+            <input id="num-a" name="a" type="text" inputmode="decimal" autocomplete="off" placeholder="0" aria-describedby="num-a-error">
+            <p class="calc__error" id="num-a-error"></p>
+          </div>
+          <span class="calc__op" aria-hidden="true">+</span>
+          <div class="calc__field">
+            <label for="num-b">Second number</label>
+            <input id="num-b" name="b" type="text" inputmode="decimal" autocomplete="off" placeholder="0" aria-describedby="num-b-error">
+            <p class="calc__error" id="num-b-error"></p>
+          </div>
+          <span class="calc__op" aria-hidden="true">=</span>
+          <output class="calc__result" id="calc-result" for="num-a num-b" aria-live="polite">0</output>
+        </div>
+        <div class="calc__actions">
+          <button class="btn" type="submit">Add</button>
+          <button class="btn btn--ghost" type="reset">Clear</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <!-- Greeting dialog (the "alert box") -->
+  <dialog class="alert" id="greeting-dialog" aria-labelledby="alert-title" aria-describedby="alert-text">
+    <div class="alert__icon" id="alert-icon" aria-hidden="true"></div>
+    <h2 class="alert__title" id="alert-title">Good Morning</h2>
+    <p class="alert__text" id="alert-text"></p>
+    <form method="dialog">
+      <button class="btn alert__ok" value="ok">OK</button>
+    </form>
+  </dialog>
+
+  <div class="wrap">
+    <nav class="pager" aria-label="Task navigation">
+      <a href="../task-1/"><small>Previous</small><strong>Level 1 · Task 1</strong></a>
+      <a class="next" href="../../level-2/task-1/"><small>Next</small><strong>Level 2 · Task 1</strong></a>
+    </nav>
+  </div>
+
+  <footer class="site-footer">
+    <div class="wrap site-footer__row">
+      <span>Copyright © <span data-year>2026</span> Kashav Thappa. All rights reserved.</span>
+      <span>Primeor Solutions · Web Development Internship</span>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/site.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
