@@ -1,0 +1,473 @@
+/* Level 2 · Task 2 — the Northlight Studio page, rebuilt mobile-first.
+   Base styles target phones; media queries add the tablet (640px+) and desktop (1024px+) layouts. */
+
+html {
+  scroll-padding-top: calc(var(--nav-h) + 72px);
+}
+
+.compare {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 30px;
+}
+
+/* ---------- Breakpoint indicator (text comes only from media queries) ---------- */
+
+.bp-badge {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 90;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(29, 29, 31, 0.86);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 500;
+  box-shadow: var(--shadow);
+}
+
+.bp-badge__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ff9f0a;
+}
+
+.bp-badge__label::after {
+  content: "Mobile · under 640px";
+}
+
+/* ---------- Page shell ---------- */
+
+.studio {
+  --s-accent: #0071e3;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  background: #fff;
+}
+
+.s-wrap {
+  width: min(100% - 32px, 1080px);
+  margin-inline: auto;
+}
+
+/* ---------- Header + CSS-only hamburger ---------- */
+
+.s-header {
+  position: sticky;
+  top: var(--nav-h);
+  z-index: 50;
+  background: rgba(255, 255, 255, 0.85);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.s-header__inner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 60px;
+}
+
+.s-logo {
+  color: var(--ink);
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.s-logo span {
+  margin-left: 4px;
+  color: var(--ink-3);
+  font-weight: 500;
+}
+
+.s-logo:hover {
+  text-decoration: none;
+}
+
+/* The checkbox is visually hidden but stays focusable for keyboard users */
+.s-menu-toggle {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+}
+
+.s-burger {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  margin-right: -10px;
+  padding: 0 11px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.s-menu-toggle:focus-visible + .s-burger {
+  outline: 3px solid rgba(0, 113, 227, 0.55);
+}
+
+.s-burger span {
+  display: block;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--ink);
+  transition: transform 0.35s var(--ease), opacity 0.2s var(--ease);
+}
+
+.s-menu-toggle:checked + .s-burger span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.s-menu-toggle:checked + .s-burger span:nth-child(2) {
+  opacity: 0;
+}
+
+.s-menu-toggle:checked + .s-burger span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Mobile menu: a panel that drops down below the header */
+.s-nav {
+  position: absolute;
+  top: 100%;
+  left: -16px;
+  right: -16px;
+  display: grid;
+  grid-template-rows: 0fr;
+  background: rgba(255, 255, 255, 0.97);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  transition: grid-template-rows 0.45s var(--ease);
+}
+
+.s-nav ul {
+  min-height: 0;
+  overflow: hidden;
+  margin: 0;
+  padding: 0 16px;
+  list-style: none;
+}
+
+.s-nav a {
+  display: block;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  color: var(--ink);
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.s-nav li:last-child a {
+  border-bottom: 0;
+}
+
+.s-nav a:hover {
+  color: var(--s-accent);
+  text-decoration: none;
+}
+
+.s-menu-toggle:checked ~ .s-nav {
+  grid-template-rows: 1fr;
+}
+
+/* ---------- Hero ---------- */
+
+.s-hero {
+  padding: 64px 0;
+  background:
+    radial-gradient(70% 90% at 50% 0%, rgba(0, 113, 227, 0.12), transparent 70%),
+    var(--surface-2);
+  text-align: center;
+}
+
+.s-hero h2 {
+  margin: 0;
+  font-size: 34px;
+  line-height: 1.1;
+  letter-spacing: -0.035em;
+}
+
+.s-hero p {
+  margin: 14px auto 28px;
+  max-width: 520px;
+  color: var(--ink-2);
+  font-size: 18px;
+}
+
+/* ---------- Services: one column on mobile ---------- */
+
+.s-services {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  padding: 48px 0 24px;
+}
+
+.s-services article {
+  padding: 24px;
+  border-radius: var(--radius);
+  background: var(--surface-2);
+}
+
+.s-services h3 {
+  margin: 0 0 6px;
+  font-size: 20px;
+  letter-spacing: -0.02em;
+}
+
+.s-services p {
+  margin: 0;
+  color: var(--ink-2);
+}
+
+/* ---------- Work: two columns on mobile ---------- */
+
+.s-work {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  padding: 24px 0;
+}
+
+.s-work img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  transition: transform 0.6s var(--ease-out), filter 0.6s var(--ease-out);
+}
+
+.s-work img:hover {
+  transform: scale(1.03);
+  filter: saturate(1.15);
+}
+
+/* ---------- Pricing ---------- */
+
+.s-pricing {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  padding: 24px 0 64px;
+}
+
+.s-plan {
+  padding: 28px 24px;
+  border-radius: var(--radius);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+}
+
+.s-plan--featured {
+  background: var(--ink);
+  color: #fff;
+  box-shadow: none;
+}
+
+.s-plan h3 {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.s-price {
+  margin: 6px 0 16px;
+  font-size: 34px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.s-plan ul {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--ink-2);
+}
+
+.s-plan--featured ul {
+  color: #c7c7cc;
+}
+
+.s-plan li + li {
+  margin-top: 4px;
+}
+
+/* ---------- Footer ---------- */
+
+.s-footer {
+  padding: 32px 0;
+  background: var(--ink);
+  color: #a1a1a6;
+  font-size: 14px;
+}
+
+.s-footer strong {
+  color: #fff;
+}
+
+.s-footer__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.s-footer p {
+  margin: 0;
+}
+
+/* =====================================================================
+   Tablet — 640px and up
+   ===================================================================== */
+@media (min-width: 640px) {
+  .bp-badge__dot {
+    background: #30d158;
+  }
+
+  .bp-badge__label::after {
+    content: "Tablet · 640px – 1023px";
+  }
+
+  .s-wrap {
+    width: min(100% - 48px, 1080px);
+  }
+
+  .s-hero {
+    padding: 88px 0;
+  }
+
+  .s-hero h2 {
+    font-size: 46px;
+  }
+
+  .s-services {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .s-work {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+
+  .s-work img {
+    aspect-ratio: 4 / 3;
+  }
+
+  .s-pricing {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .s-footer__inner {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+}
+
+/* =====================================================================
+   Desktop — 1024px and up: full inline menu, no hamburger
+   ===================================================================== */
+@media (min-width: 1024px) {
+  .bp-badge__dot {
+    background: #0a84ff;
+  }
+
+  .bp-badge__label::after {
+    content: "Desktop · 1024px and up";
+  }
+
+  .s-burger {
+    display: none;
+  }
+
+  .s-nav {
+    position: static;
+    display: block;
+    background: none;
+    border: 0;
+  }
+
+  .s-nav ul {
+    display: flex;
+    gap: 32px;
+    overflow: visible;
+    padding: 0;
+  }
+
+  .s-nav a {
+    position: relative;
+    padding: 6px 0;
+    border: 0;
+    color: var(--ink-2);
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0;
+  }
+
+  .s-nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+    background: var(--s-accent);
+    transform: scaleX(0);
+    transition: transform 0.3s var(--ease);
+  }
+
+  .s-nav a:hover {
+    color: var(--ink);
+  }
+
+  .s-nav a:hover::after {
+    transform: scaleX(1);
+  }
+
+  .s-hero {
+    padding: 120px 0;
+  }
+
+  .s-hero h2 {
+    font-size: 60px;
+  }
+
+  .s-services {
+    gap: 20px;
+    padding-top: 72px;
+  }
+
+  .s-services article {
+    padding: 32px;
+  }
+
+  .s-work {
+    gap: 16px;
+  }
+
+  .s-pricing {
+    gap: 20px;
+    align-items: center;
+    padding-bottom: 96px;
+  }
+
+  .s-plan {
+    padding: 36px 32px;
+  }
+
+  .s-plan--featured {
+    padding: 48px 32px;
+  }
+}

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Level 2 · Task 2 — Responsive Design | Kashav Thappa</title>
+  <meta name="description" content="A basic fixed-width page converted into a responsive design with CSS media queries and a CSS-only hamburger menu.">
+  <meta name="author" content="Kashav Thappa">
+  <link rel="icon" href="../../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="../../assets/css/site.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#studio">Skip to content</a>
+
+  <header class="gnav">
+    <nav class="wrap gnav__inner" aria-label="Portfolio">
+      <a class="gnav__brand" href="../../"><span class="gnav__logo" aria-hidden="true">K</span>Kashav Thappa</a>
+      <button class="gnav__toggle" type="button" aria-expanded="false" aria-controls="gnav-links" aria-label="Menu">
+        <span></span><span></span>
+      </button>
+      <ul class="gnav__links" id="gnav-links">
+        <li><a href="../../#level-1">Level 1</a></li>
+        <li><a href="../../#level-2" aria-current="page">Level 2</a></li>
+        <li><a href="../../#level-3">Level 3</a></li>
+        <li><a href="../../#about">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="task-hero wrap">
+    <ol class="crumbs">
+      <li><a href="../../">Portfolio</a></li>
+      <li><a href="../../#level-2">Level 2</a></li>
+      <li aria-current="page">Task 2</li>
+    </ol>
+    <h1 class="title">Responsive Design</h1>
+    <p class="lede">The original page used a fixed 960px container and floats. Below is the same page rebuilt mobile-first with CSS media queries.</p>
+    <ul class="checklist">
+      <li>CSS media queries</li>
+      <li>CSS-only hamburger menu</li>
+      <li>Mobile, tablet &amp; desktop layouts</li>
+    </ul>
+    <div class="compare">
+      <a class="btn btn--ghost" href="basic.html">View the original page</a>
+      <a class="btn" href="#studio">See the responsive version</a>
+    </div>
+  </section>
+
+  <!-- Live breakpoint indicator: its text is set purely by media queries in style.css -->
+  <p class="bp-badge" aria-hidden="true"><span class="bp-badge__dot"></span><span class="bp-badge__label"></span></p>
+
+  <!-- ===== The converted, responsive page ===== -->
+  <div class="studio" id="studio">
+    <header class="s-header">
+      <div class="s-wrap s-header__inner">
+        <a class="s-logo" href="#studio">Northlight<span>Studio</span></a>
+
+        <!-- CSS-only hamburger: the checkbox stores the open/closed state, the label is the button -->
+        <input class="s-menu-toggle" type="checkbox" id="s-menu-toggle">
+        <label class="s-burger" for="s-menu-toggle" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </label>
+
+        <nav class="s-nav" aria-label="Studio">
+          <ul>
+            <li><a href="#s-home">Home</a></li>
+            <li><a href="#s-work">Work</a></li>
+            <li><a href="#s-services">Services</a></li>
+            <li><a href="#s-pricing">Pricing</a></li>
+            <li><a href="#s-contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <section class="s-hero" id="s-home">
+      <div class="s-wrap">
+        <h2>We design websites people enjoy using.</h2>
+        <p>A small studio for brands, shops and personal portfolios.</p>
+        <a class="btn" href="#s-contact">Start a project</a>
+      </div>
+    </section>
+
+    <section class="s-services s-wrap" id="s-services">
+      <article>
+        <h3>Design</h3>
+        <p>Clean layouts, readable type and a calm colour palette.</p>
+      </article>
+      <article>
+        <h3>Develop</h3>
+        <p>Hand-written HTML and CSS that loads quickly.</p>
+      </article>
+      <article>
+        <h3>Support</h3>
+        <p>Small updates and fixes after the site goes live.</p>
+      </article>
+    </section>
+
+    <section class="s-work s-wrap" id="s-work" aria-label="Recent work">
+      <img src="../../assets/img/gallery/fjord-sm.webp" alt="Fjord between rocky cliffs" width="640" height="427" loading="lazy">
+      <img src="../../assets/img/gallery/skyline-sm.webp" alt="City skyline at sunset" width="640" height="427" loading="lazy">
+      <img src="../../assets/img/gallery/alley-sm.webp" alt="Narrow brick alley" width="640" height="427" loading="lazy">
+      <img src="../../assets/img/gallery/river-sm.webp" alt="Person standing by a misty river" width="640" height="427" loading="lazy">
+      <img src="../../assets/img/gallery/cliffs-sm.webp" alt="Coastal cliffs at golden hour" width="640" height="427" loading="lazy">
+      <img src="../../assets/img/gallery/storm-sm.webp" alt="Storm clouds over the sea" width="640" height="427" loading="lazy">
+    </section>
+
+    <section class="s-pricing s-wrap" id="s-pricing">
+      <article class="s-plan">
+        <h3>Starter</h3>
+        <p class="s-price">₹4,999</p>
+        <ul><li>One-page website</li><li>Mobile friendly</li><li>Contact form</li></ul>
+      </article>
+      <article class="s-plan s-plan--featured">
+        <h3>Business</h3>
+        <p class="s-price">₹14,999</p>
+        <ul><li>Up to six pages</li><li>Custom design</li><li>Basic SEO setup</li></ul>
+      </article>
+      <article class="s-plan">
+        <h3>Store</h3>
+        <p class="s-price">₹29,999</p>
+        <ul><li>Product catalogue</li><li>Payment integration</li><li>Three months of support</li></ul>
+      </article>
+    </section>
+
+    <footer class="s-footer" id="s-contact">
+      <div class="s-wrap s-footer__inner">
+        <p><strong>Northlight Studio</strong><br>hello@northlight.example</p>
+        <p>© Northlight Studio. A sample page for Level 2 · Task 2.</p>
+      </div>
+    </footer>
+  </div>
+  <!-- ===== End of responsive page ===== -->
+
+  <div class="wrap">
+    <nav class="pager" aria-label="Task navigation">
+      <a href="../task-1/"><small>Previous</small><strong>Level 2 · Task 1</strong></a>
+      <a class="next" href="../../level-3/task-1/"><small>Next</small><strong>Level 3 · Task 1</strong></a>
+    </nav>
+  </div>
+
+  <footer class="site-footer">
+    <div class="wrap site-footer__row">
+      <span>Copyright © <span data-year>2026</span> Kashav Thappa. All rights reserved.</span>
+      <span>Primeor Solutions · Web Development Internship</span>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/site.js"></script>
+</body>
+</html>

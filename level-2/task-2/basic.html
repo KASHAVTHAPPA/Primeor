@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- Deliberately no viewport meta tag and a fixed 960px width:
+       this is the "before" version that Task 2 converts into a responsive page (index.html). -->
+  <title>Northlight Studio (original, non-responsive) | Kashav Thappa</title>
+  <link rel="icon" href="../../assets/img/favicon.svg" type="image/svg+xml">
+  <style>
+    body { margin: 0; background: #eeeeee; font-family: Arial, Helvetica, sans-serif; font-size: 15px; color: #222; }
+    .note { background: #1d1d1f; color: #fff; padding: 10px; text-align: center; font-size: 14px; }
+    .note a { color: #64b5ff; }
+    .container { width: 960px; margin: 0 auto; background: #fff; }
+    .header { height: 60px; padding: 0 20px; border-bottom: 1px solid #ccc; }
+    .logo { float: left; line-height: 60px; font-size: 22px; font-weight: bold; }
+    .menu { float: right; margin: 0; padding: 0; list-style: none; }
+    .menu li { float: left; margin-left: 24px; line-height: 60px; }
+    .menu a { color: #222; text-decoration: none; }
+    .hero { padding: 60px 20px; text-align: center; background: #dde7f3; }
+    .hero h1 { margin: 0 0 10px; font-size: 40px; }
+    .features { overflow: hidden; padding: 30px 20px; }
+    .feature { float: left; width: 280px; margin-right: 20px; padding: 10px; border: 1px solid #ddd; }
+    .feature:last-child { margin-right: 0; }
+    .work { overflow: hidden; padding: 0 20px 30px; }
+    .work img { float: left; width: 296px; height: 200px; margin: 0 10px 10px 0; object-fit: cover; }
+    .work img:nth-child(3n) { margin-right: 0; }
+    .footer { padding: 20px; background: #333; color: #ccc; text-align: center; }
+  </style>
+</head>
+<body>
+  <div class="note">Original fixed-width page (960px). Open it on a phone to see the problem, then compare with the <a href="./">responsive version</a>.</div>
+  <div class="container">
+    <div class="header">
+      <div class="logo">Northlight Studio</div>
+      <ul class="menu">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Work</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Pricing</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+    <div class="hero">
+      <h1>We design websites people enjoy using.</h1>
+      <p>A small studio for brands, shops and personal portfolios.</p>
+    </div>
+    <div class="features">
+      <div class="feature"><h3>Design</h3><p>Clean layouts, readable type and a calm colour palette.</p></div>
+      <div class="feature"><h3>Develop</h3><p>Hand-written HTML and CSS that loads quickly.</p></div>
+      <div class="feature"><h3>Support</h3><p>Small updates and fixes after the site goes live.</p></div>
+    </div>
+    <div class="work">
+      <img src="../../assets/img/gallery/fjord-sm.webp" alt="Fjord">
+      <img src="../../assets/img/gallery/skyline-sm.webp" alt="City skyline">
+      <img src="../../assets/img/gallery/alley-sm.webp" alt="Brick alley">
+      <img src="../../assets/img/gallery/river-sm.webp" alt="River">
+      <img src="../../assets/img/gallery/cliffs-sm.webp" alt="Cliffs">
+      <img src="../../assets/img/gallery/storm-sm.webp" alt="Storm">
+    </div>
+    <div class="footer">© Northlight Studio</div>
+  </div>
+</body>
+</html>
