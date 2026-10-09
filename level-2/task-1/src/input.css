@@ -1,0 +1,32 @@
+/* Tailwind CSS entry for Level 2 · Task 1.
+   Build with `npm run tailwind:build` -> ../tailwind.css (committed, so hosting needs no build step). */
+
+@import "tailwindcss" source(none);
+@source "../index.html";
+
+@theme {
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Inter", "Helvetica Neue", Arial, sans-serif;
+  --color-ink: #1d1d1f;
+  --color-ink-2: #6e6e73;
+  --color-ink-3: #86868b;
+  --color-canvas: #fbfbfd;
+  --color-mist: #f5f5f7;
+  --color-brand: #0071e3;
+  --color-brand-ink: #0066cc;
+  --ease-apple: cubic-bezier(0.28, 0.11, 0.32, 1);
+  --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+  --shadow-soft: 0 2px 8px rgb(0 0 0 / 0.04), 0 12px 40px rgb(0 0 0 / 0.06);
+  --shadow-lift: 0 4px 16px rgb(0 0 0 / 0.06), 0 24px 64px rgb(0 0 0 / 0.1);
+}
+
+@layer components {
+  .icon-tile {
+    @apply grid size-12 place-items-center rounded-2xl;
+  }
+  .icon-tile svg {
+    @apply size-6 fill-none stroke-current;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+}

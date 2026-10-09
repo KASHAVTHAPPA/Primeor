@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Level 2 · Task 1 — Tailwind CSS Components | Kashav Thappa</title>
+  <meta name="description" content="A responsive card component, a responsive grid layout and a company services section built with Tailwind CSS.">
+  <meta name="author" content="Kashav Thappa">
+  <link rel="icon" href="../../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="tailwind.css">
+  <link rel="stylesheet" href="../../assets/css/site.css">
+</head>
+<body class="bg-canvas font-sans text-ink antialiased">
+  <a class="skip-link" href="#cards">Skip to content</a>
+
+  <header class="gnav">
+    <nav class="wrap gnav__inner" aria-label="Portfolio">
+      <a class="gnav__brand" href="../../"><span class="gnav__logo" aria-hidden="true">K</span>Kashav Thappa</a>
+      <button class="gnav__toggle" type="button" aria-expanded="false" aria-controls="gnav-links" aria-label="Menu">
+        <span></span><span></span>
+      </button>
+      <ul class="gnav__links" id="gnav-links">
+        <li><a href="../../#level-1">Level 1</a></li>
+        <li><a href="../../#level-2" aria-current="page">Level 2</a></li>
+        <li><a href="../../#level-3">Level 3</a></li>
+        <li><a href="../../#about">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="task-hero wrap">
+    <ol class="crumbs">
+      <li><a href="../../">Portfolio</a></li>
+      <li><a href="../../#level-2">Level 2</a></li>
+      <li aria-current="page">Task 1</li>
+    </ol>
+    <h1 class="title">Front-end Frameworks</h1>
+    <p class="lede">Three responsive building blocks styled entirely with Tailwind CSS utility classes.</p>
+    <ul class="checklist">
+      <li>Responsive card component</li>
+      <li>Responsive grid layout</li>
+      <li>Company services section</li>
+    </ul>
+  </section>
+
+  <main>
+    <!-- ============ 1. Responsive card component ============ -->
+    <section id="cards" class="mx-auto w-[min(100%-40px,1080px)] py-12 md:py-20" aria-labelledby="cards-title">
+      <div class="mb-10 text-center md:mb-14">
+        <p class="mb-2 text-[15px] font-semibold text-ink-2">01 · Card component</p>
+        <h2 id="cards-title" class="text-3xl font-bold tracking-tight md:text-5xl">Image and text, in balance.</h2>
+        <p class="mx-auto mt-4 max-w-xl text-lg text-ink-2">Stacked on phones, side by side from tablets up. Resize the window to see it adapt.</p>
+      </div>
+
+      <article class="group reveal flex flex-col overflow-hidden rounded-[28px] bg-white shadow-soft transition duration-500 ease-spring hover:-translate-y-1 hover:shadow-lift md:flex-row">
+        <div class="overflow-hidden md:w-1/2">
+          <img src="../../assets/img/work/studio.webp" alt="Laptop, notebooks and a phone arranged on a light desk" width="1600" height="1067" class="aspect-[16/10] h-full w-full object-cover transition duration-700 ease-spring group-hover:scale-105 md:aspect-auto">
+        </div>
+        <div class="flex flex-col justify-center gap-4 p-7 md:w-1/2 md:p-12">
+          <span class="w-fit rounded-full bg-brand/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-brand-ink">Featured</span>
+          <h3 class="text-2xl font-bold tracking-tight md:text-4xl">Design that gets out of the way</h3>
+          <p class="text-ink-2 md:text-lg">A good card leads with one clear image, one clear title and a short line of supporting text. Everything else is spacing.</p>
+          <a href="#grid" class="link-arrow w-fit font-medium text-brand-ink hover:underline">See the grid</a>
+        </div>
+      </article>
+
+      <div class="mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <article class="group reveal overflow-hidden rounded-3xl bg-white shadow-soft transition duration-500 ease-spring hover:-translate-y-1 hover:shadow-lift">
+          <div class="overflow-hidden"><img src="../../assets/img/work/notebook-sm.webp" alt="Open notebook beside a laptop" width="640" height="427" loading="lazy" class="aspect-[16/10] w-full object-cover transition duration-700 ease-spring group-hover:scale-105"></div>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold tracking-tight">Plan first</h3>
+            <p class="mt-2 text-ink-2">Sketch the layout on paper before writing a single class.</p>
+          </div>
+        </article>
+        <article class="group reveal overflow-hidden rounded-3xl bg-white shadow-soft transition duration-500 ease-spring hover:-translate-y-1 hover:shadow-lift" style="--delay:.08s">
+          <div class="overflow-hidden"><img src="../../assets/img/work/espresso-sm.webp" alt="Laptop and espresso on a wooden table" width="640" height="427" loading="lazy" class="aspect-[16/10] w-full object-cover transition duration-700 ease-spring group-hover:scale-105"></div>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold tracking-tight">Build in small steps</h3>
+            <p class="mt-2 text-ink-2">Mobile layout first, then add breakpoints one at a time.</p>
+          </div>
+        </article>
+        <article class="group reveal overflow-hidden rounded-3xl bg-white shadow-soft transition duration-500 ease-spring hover:-translate-y-1 hover:shadow-lift sm:col-span-2 lg:col-span-1" style="--delay:.16s">
+          <div class="overflow-hidden"><img src="../../assets/img/work/flatlay-sm.webp" alt="Keyboard, tablet and accessories on a dark desk" width="640" height="427" loading="lazy" class="aspect-[16/10] w-full object-cover transition duration-700 ease-spring group-hover:scale-105"></div>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold tracking-tight">Polish the details</h3>
+            <p class="mt-2 text-ink-2">Hover states, focus rings and consistent radii finish the job.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ 2. Responsive grid layout ============ -->
+    <section id="grid" class="bg-mist py-12 md:py-20" aria-labelledby="grid-title">
+      <div class="mx-auto w-[min(100%-40px,1080px)]">
+        <div class="mb-10 text-center md:mb-14">
+          <p class="mb-2 text-[15px] font-semibold text-ink-2">02 · Grid layout</p>
+          <h2 id="grid-title" class="text-3xl font-bold tracking-tight md:text-5xl">One grid. Every screen.</h2>
+          <p class="mx-auto mt-4 max-w-xl text-lg text-ink-2">One column on phones, two on large phones, three on tablets and four on desktops.</p>
+          <p class="mt-6 inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-medium shadow-soft">
+            <span class="size-2 rounded-full bg-green-600"></span>
+            Current layout:
+            <span class="sm:hidden">1 column</span>
+            <span class="hidden sm:inline md:hidden">2 columns</span>
+            <span class="hidden md:inline lg:hidden">3 columns</span>
+            <span class="hidden lg:inline">4 columns</span>
+          </p>
+        </div>
+
+        <ul class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+          <li class="group reveal relative overflow-hidden rounded-2xl sm:col-span-2 sm:row-span-2">
+            <img src="../../assets/img/gallery/fjord.webp" alt="Deep blue fjord between rocky cliffs" width="1600" height="1067" loading="lazy" class="h-full min-h-56 w-full object-cover transition duration-700 ease-spring group-hover:scale-105">
+            <span class="absolute bottom-3 left-3 rounded-full bg-white/80 px-3 py-1 text-sm font-medium backdrop-blur">Fjord</span>
+          </li>
+          <li class="group reveal relative overflow-hidden rounded-2xl">
+            <img src="../../assets/img/gallery/highlands-sm.webp" alt="Green highland ridge with a winding road" width="640" height="427" loading="lazy" class="aspect-[4/3] w-full object-cover transition duration-700 ease-spring group-hover:scale-105">
+            <span class="absolute bottom-3 left-3 rounded-full bg-white/80 px-3 py-1 text-sm font-medium backdrop-blur">Highlands</span>
+          </li>
+          <li class="group reveal relative overflow-hidden rounded-2xl">
+            <img src="../../assets/img/gallery/valley-sm.webp" alt="Granite cliffs above a pine forest" width="640" height="427" loading="lazy" class="aspect-[4/3] w-full object-cover transition duration-700 ease-spring group-hover:scale-105">
+            <span class="absolute bottom-3 left-3 rounded-full bg-white/80 px-3 py-1 text-sm font-medium backdrop-blur">Valley</span>
+          </li>
+          <li class="group reveal relative overflow-hidden rounded-2xl">
+            <img src="../../assets/img/gallery/waterfall-sm.webp" alt="Waterfall in a mossy green gorge" width="640" height="427" loading="lazy" class="aspect-[4/3] w-full object-cover transition duration-700 ease-spring group-hover:scale-105">
+            <span class="absolute bottom-3 left-3 rounded-full bg-white/80 px-3 py-1 text-sm font-medium backdrop-blur">Waterfall</span>
+          </li>
+          <li class="group reveal relative overflow-hidden rounded-2xl">
+            <img src="../../assets/img/gallery/coastline-sm.webp" alt="Turquoise sea against white coastal cliffs" width="640" height="427" loading="lazy" class="aspect-[4/3] w-full object-cover transition duration-700 ease-spring group-hover:scale-105">
+            <span class="absolute bottom-3 left-3 rounded-full bg-white/80 px-3 py-1 text-sm font-medium backdrop-blur">Coastline</span>
+          </li>
+          <li class="group reveal relative overflow-hidden rounded-2xl">
+            <img src="../../assets/img/gallery/basecamp-sm.webp" alt="Yellow tents at a snowy mountain base camp" width="640" height="427" loading="lazy" class="aspect-[4/3] w-full object-cover transition duration-700 ease-spring group-hover:scale-105">
+            <span class="absolute bottom-3 left-3 rounded-full bg-white/80 px-3 py-1 text-sm font-medium backdrop-blur">Base camp</span>
+          </li>
+          <li class="group reveal relative overflow-hidden rounded-2xl">
+            <img src="../../assets/img/gallery/canyon-sm.webp" alt="Red rock canyon at sunset" width="640" height="427" loading="lazy" class="aspect-[4/3] w-full object-cover transition duration-700 ease-spring group-hover:scale-105">
+            <span class="absolute bottom-3 left-3 rounded-full bg-white/80 px-3 py-1 text-sm font-medium backdrop-blur">Canyon</span>
+          </li>
+          <li class="group reveal relative overflow-hidden rounded-2xl">
+            <img src="../../assets/img/gallery/river-sm.webp" alt="A lone hiker beside a misty river" width="640" height="427" loading="lazy" class="aspect-[4/3] w-full object-cover transition duration-700 ease-spring group-hover:scale-105">
+            <span class="absolute bottom-3 left-3 rounded-full bg-white/80 px-3 py-1 text-sm font-medium backdrop-blur">River</span>
+          </li>
+          <li class="group reveal relative overflow-hidden rounded-2xl">
+            <img src="../../assets/img/gallery/storm-sm.webp" alt="Dark storm clouds over the sea" width="640" height="427" loading="lazy" class="aspect-[4/3] w-full object-cover transition duration-700 ease-spring group-hover:scale-105">
+            <span class="absolute bottom-3 left-3 rounded-full bg-white/80 px-3 py-1 text-sm font-medium backdrop-blur">Storm</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ 3. Services section for a company website ============ -->
+    <section id="services" class="mx-auto w-[min(100%-40px,1080px)] py-12 md:py-20" aria-labelledby="services-title">
+      <div class="mb-10 text-center md:mb-14">
+        <p class="mb-2 text-[15px] font-semibold text-ink-2">03 · Services section</p>
+        <h2 id="services-title" class="text-3xl font-bold tracking-tight md:text-5xl">What we do.</h2>
+        <p class="mx-auto mt-4 max-w-xl text-lg text-ink-2">A services block for a data analytics and consulting company, ready to drop into a company website.</p>
+      </div>
+
+      <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <article class="reveal rounded-3xl bg-white p-7 shadow-soft transition duration-500 ease-spring hover:-translate-y-1 hover:shadow-lift">
+          <div class="icon-tile bg-blue-50 text-blue-600"><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></div>
+          <h3 class="mt-5 text-xl font-semibold tracking-tight">Data Analytics</h3>
+          <p class="mt-2 text-ink-2">Turning raw data into clear findings that teams can act on.</p>
+        </article>
+        <article class="reveal rounded-3xl bg-white p-7 shadow-soft transition duration-500 ease-spring hover:-translate-y-1 hover:shadow-lift" style="--delay:.06s">
+          <div class="icon-tile bg-violet-50 text-violet-600"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 21V9"/></svg></div>
+          <h3 class="mt-5 text-xl font-semibold tracking-tight">Business Intelligence</h3>
+          <p class="mt-2 text-ink-2">Interactive dashboards that keep the key numbers in one place.</p>
+        </article>
+        <article class="reveal rounded-3xl bg-white p-7 shadow-soft transition duration-500 ease-spring hover:-translate-y-1 hover:shadow-lift" style="--delay:.12s">
+          <div class="icon-tile bg-pink-50 text-pink-600"><svg viewBox="0 0 24 24"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5"/></svg></div>
+          <h3 class="mt-5 text-xl font-semibold tracking-tight">Web Development</h3>
+          <p class="mt-2 text-ink-2">Fast, responsive websites built with modern front-end tools.</p>
+        </article>
+        <article class="reveal rounded-3xl bg-white p-7 shadow-soft transition duration-500 ease-spring hover:-translate-y-1 hover:shadow-lift">
+          <div class="icon-tile bg-orange-50 text-orange-600"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+          <h3 class="mt-5 text-xl font-semibold tracking-tight">Strategy Consulting</h3>
+          <p class="mt-2 text-ink-2">Data-driven advice for planning, growth and better decisions.</p>
+        </article>
+        <article class="reveal rounded-3xl bg-white p-7 shadow-soft transition duration-500 ease-spring hover:-translate-y-1 hover:shadow-lift" style="--delay:.06s">
+          <div class="icon-tile bg-green-50 text-green-700"><svg viewBox="0 0 24 24"><path d="M12 3l8 4v5c0 4.5-3.4 8.2-8 9-4.6-.8-8-4.5-8-9V7l8-4z"/><path d="M9 12l2 2 4-4"/></svg></div>
+          <h3 class="mt-5 text-xl font-semibold tracking-tight">Data Quality</h3>
+          <p class="mt-2 text-ink-2">Cleaning and validating data so every report starts from facts.</p>
+        </article>
+        <article class="reveal rounded-3xl bg-white p-7 shadow-soft transition duration-500 ease-spring hover:-translate-y-1 hover:shadow-lift" style="--delay:.12s">
+          <div class="icon-tile bg-sky-50 text-sky-600"><svg viewBox="0 0 24 24"><path d="M3 9l9-5 9 5-9 5-9-5z"/><path d="M7 11.5V16c0 1.4 2.2 3 5 3s5-1.6 5-3v-4.5"/></svg></div>
+          <h3 class="mt-5 text-xl font-semibold tracking-tight">Training &amp; Internships</h3>
+          <p class="mt-2 text-ink-2">Hands-on programmes that prepare students for industry work.</p>
+        </article>
+      </div>
+
+      <div class="mt-12 flex flex-col items-center justify-center gap-3 text-center sm:flex-row">
+        <a href="../../level-3/task-2/" class="btn">Explore the internship</a>
+        <a href="#cards" class="btn btn--ghost">Back to top</a>
+      </div>
+    </section>
+  </main>
+
+  <div class="wrap">
+    <nav class="pager" aria-label="Task navigation">
+      <a href="../../level-1/task-2/"><small>Previous</small><strong>Level 1 · Task 2</strong></a>
+      <a class="next" href="../task-2/"><small>Next</small><strong>Level 2 · Task 2</strong></a>
+    </nav>
+  </div>
+
+  <footer class="site-footer">
+    <div class="wrap site-footer__row">
+      <span>Copyright © <span data-year>2026</span> Kashav Thappa. All rights reserved.</span>
+      <span>Styled with Tailwind CSS</span>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/site.js"></script>
+</body>
+</html>
