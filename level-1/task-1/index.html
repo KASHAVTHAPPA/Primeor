@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Level 1 · Task 1 — Styled Web Page | Kashav Thappa</title>
+  <meta name="description" content="A styled web page with a heading, paragraph, image, contact form and responsive navigation, built with HTML and CSS.">
+  <meta name="author" content="Kashav Thappa">
+  <link rel="icon" href="../../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="../../assets/css/site.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#home">Skip to content</a>
+
+  <header class="gnav">
+    <nav class="wrap gnav__inner" aria-label="Portfolio">
+      <a class="gnav__brand" href="../../"><span class="gnav__logo" aria-hidden="true">K</span>Kashav Thappa</a>
+      <button class="gnav__toggle" type="button" aria-expanded="false" aria-controls="gnav-links" aria-label="Menu">
+        <span></span><span></span>
+      </button>
+      <ul class="gnav__links" id="gnav-links">
+        <li><a href="../../#level-1" aria-current="page">Level 1</a></li>
+        <li><a href="../../#level-2">Level 2</a></li>
+        <li><a href="../../#level-3">Level 3</a></li>
+        <li><a href="../../#about">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="task-hero wrap">
+    <ol class="crumbs">
+      <li><a href="../../">Portfolio</a></li>
+      <li><a href="../../#level-1">Level 1</a></li>
+      <li aria-current="page">Task 1</li>
+    </ol>
+    <h1 class="title">HTML &amp; CSS</h1>
+    <p class="lede">A styled web page with a navigation menu, an introduction, an about section and a contact form, written in plain HTML and CSS.</p>
+    <ul class="checklist">
+      <li>Heading, paragraph &amp; image</li>
+      <li>Background colours &amp; spacing</li>
+      <li>Form with input &amp; submit</li>
+      <li>Responsive navigation</li>
+      <li>Hover effects</li>
+    </ul>
+  </section>
+
+  <!-- ===== The web page built for this task ===== -->
+  <div class="page">
+    <nav class="local-nav" aria-label="Page">
+      <div class="wrap local-nav__inner">
+        <a class="local-nav__title" href="#home">Kashav<span>.</span></a>
+        <ul class="local-nav__links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <section class="intro" id="home">
+      <div class="wrap intro__grid">
+        <div class="intro__text">
+          <p class="kicker">Hello there</p>
+          <h2 class="intro__heading">I build clean, simple websites.</h2>
+          <p class="intro__para">I am Kashav, a Computer Science student who enjoys turning ideas into pages that are easy to read and pleasant to use. This page is my first internship task: no frameworks, just careful HTML structure and hand-written CSS.</p>
+          <div class="intro__actions">
+            <a class="btn" href="#contact">Get in touch</a>
+            <a class="btn btn--ghost" href="#about">Read more</a>
+          </div>
+        </div>
+        <figure class="intro__figure">
+          <img src="../../assets/img/work/minimal-desk.webp" alt="A tidy wooden desk with a laptop, glasses and a mouse" width="1600" height="1067">
+          <figcaption>My kind of workspace: minimal and focused.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="wrap">
+        <h2 class="section-heading">About me</h2>
+        <p class="section-para">I am studying B.Tech in Computer Science &amp; Engineering at Shri Mata Vaishno Devi University. During this internship I am focusing on the front end: how layout, spacing, colour and type work together to make an interface feel calm.</p>
+        <div class="cards">
+          <article class="card">
+            <span class="card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M3 9l9-5 9 5-9 5-9-5z"/><path d="M7 11.5V16c0 1.4 2.2 3 5 3s5-1.6 5-3v-4.5"/></svg>
+            </span>
+            <h3>Studying</h3>
+            <p>B.Tech CSE at SMVDU, Katra.</p>
+          </article>
+          <article class="card">
+            <span class="card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M8 7l-5 5 5 5"/><path d="M16 7l5 5-5 5"/><path d="M13.5 4l-3 16"/></svg>
+            </span>
+            <h3>Interested in</h3>
+            <p>Front-end development and UI design.</p>
+          </article>
+          <article class="card">
+            <span class="card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M3 9h18"/><path d="M8 2v4M16 2v4"/></svg>
+            </span>
+            <h3>Currently</h3>
+            <p>Web Developer Intern at Primeor Solutions.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="wrap contact__grid">
+        <div>
+          <h2 class="section-heading">Say hello</h2>
+          <p class="section-para">Have a question or an idea? Leave your details and a short message.</p>
+        </div>
+        <form class="form" id="contact-form" novalidate>
+          <div class="field">
+            <label for="name">Full name</label>
+            <input id="name" name="name" type="text" autocomplete="name" placeholder="e.g. Aarav Sharma" required minlength="2">
+            <p class="field__error" id="name-error">Please enter your name.</p>
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+            <p class="field__error" id="email-error">Please enter a valid email address.</p>
+          </div>
+          <div class="field">
+            <label for="message">Message <span class="optional">(optional)</span></label>
+            <textarea id="message" name="message" rows="4" placeholder="Write a few words…"></textarea>
+          </div>
+          <button class="btn form__submit" type="submit">Submit</button>
+          <p class="form__status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </div>
+  <!-- ===== End of task page ===== -->
+
+  <div class="wrap">
+    <nav class="pager" aria-label="Task navigation">
+      <a href="../../"><small>Back to</small><strong>Portfolio home</strong></a>
+      <a class="next" href="../task-2/"><small>Next</small><strong>Level 1 · Task 2</strong></a>
+    </nav>
+  </div>
+
+  <footer class="site-footer">
+    <div class="wrap site-footer__row">
+      <span>Copyright © <span data-year>2026</span> Kashav Thappa. All rights reserved.</span>
+      <span>Primeor Solutions · Web Development Internship</span>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/site.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
