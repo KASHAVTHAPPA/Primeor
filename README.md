@@ -8,18 +8,20 @@ linked together by a portfolio home page.
 **Intern:** Kashav Thappa · B.Tech Computer Science & Engineering, Shri Mata Vaishno Devi University, Katra
 **Role:** Web Developer Intern (Intern ID: PS/WDI/2026/190) · **Mode:** Remote
 
+**Live site:** [primeor.vercel.app](https://primeor.vercel.app/)
+
 ---
 
 ## Tasks
 
-| Level | Task | Folder | What it covers |
-|---|---|---|---|
-| 1 | Task 1 — HTML & CSS | [`level-1/task-1`](level-1/task-1) | Styled page with heading, paragraph, image, background colours and spacing; a clean form with input fields and a submit button; a responsive Home / About / Contact navigation with hover effects |
-| 1 | Task 2 — JavaScript | [`level-1/task-2`](level-1/task-2) | Button that changes its background colour on click; greeting alert ("Good Morning / Afternoon / Evening") based on the system time; addition calculator with instant result and input validation |
-| 2 | Task 1 — Front-end frameworks | [`level-2/task-1`](level-2/task-1) | Built with **Tailwind CSS**: responsive card component with image and text, responsive grid layout (1 → 2 → 3 → 4 columns), services section for a company website |
-| 2 | Task 2 — Responsive design | [`level-2/task-2`](level-2/task-2) | A fixed-width page (`basic.html`) converted into a mobile-first responsive page with CSS media queries, a CSS-only hamburger menu, and layouts for mobile, tablet and desktop |
-| 3 | Task 1 — Image manipulation | [`level-3/task-1`](level-3/task-1) | CSS gallery whose thumbnails enlarge on click (`:target` lightbox), automatic slideshow in pure HTML and CSS (keyframe animations), smooth image hover effects |
-| 3 | Task 2 — Landing page | [`level-3/task-2`](level-3/task-2) | "Web Developer Internship Program at Primeor Solutions" landing page: headline, overview and duration, highlights, qualifications, Apply Now / Learn More actions, contact footer (website, email, LinkedIn, location) |
+| Level | Task | Folder | Live | What it covers |
+|---|---|---|---|---|
+| 1 | Task 1 — HTML & CSS | [`level-1/task-1`](level-1/task-1) | [open](https://primeor.vercel.app/level-1/task-1/) | Styled page with heading, paragraph, image, background colours and spacing; a clean form with input fields and a submit button; a responsive Home / About / Contact navigation with hover effects |
+| 1 | Task 2 — JavaScript | [`level-1/task-2`](level-1/task-2) | [open](https://primeor.vercel.app/level-1/task-2/) | Button that changes its background colour on click; greeting alert ("Good Morning / Afternoon / Evening") based on the system time; addition calculator with instant result and input validation |
+| 2 | Task 1 — Front-end frameworks | [`level-2/task-1`](level-2/task-1) | [open](https://primeor.vercel.app/level-2/task-1/) | Built with **Tailwind CSS**: responsive card component with image and text, responsive grid layout (1 → 2 → 3 → 4 columns), services section for a company website |
+| 2 | Task 2 — Responsive design | [`level-2/task-2`](level-2/task-2) | [open](https://primeor.vercel.app/level-2/task-2/) | A fixed-width page (`basic.html`) converted into a mobile-first responsive page with CSS media queries, a CSS-only hamburger menu, and layouts for mobile, tablet and desktop |
+| 3 | Task 1 — Image manipulation | [`level-3/task-1`](level-3/task-1) | [open](https://primeor.vercel.app/level-3/task-1/) | CSS gallery whose thumbnails enlarge on click (`:target` lightbox), automatic slideshow in pure HTML and CSS (keyframe animations), smooth image hover effects |
+| 3 | Task 2 — Landing page | [`level-3/task-2`](level-3/task-2) | [open](https://primeor.vercel.app/level-3/task-2/) | "Web Developer Internship Program at Primeor Solutions" landing page: headline, overview and duration, highlights, qualifications, Apply Now / Learn More actions, contact footer (website, email, LinkedIn, location) |
 
 ## Tech stack
 
@@ -74,6 +76,10 @@ npm run tailwind:build     # or: npm run tailwind:watch
 ```
 
 ## Deploying to Vercel
+
+The site is live at **https://primeor.vercel.app/** and redeploys automatically on every push to `main`.
+
+To deploy your own copy:
 
 1. Import the GitHub repository in Vercel (**Add New → Project**).
 2. Keep **Framework Preset: Other**. No build command or output directory is needed;
